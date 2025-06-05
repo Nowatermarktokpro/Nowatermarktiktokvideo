@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Download TikTok videos without watermark - Fast, Free and Easy!" />
+  <meta name="keywords" content="TikTok downloader, no watermark, video download" />
+  <meta name="author" content="Nowatermarktok.com" />
+  <title>Nowatermarktok.com - TikTok Video Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      text-align: center;
+    }header {
+  background-color: #4CAF50;
+  padding: 1rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+input[type="text"] {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.buttons {
+  margin: 1rem 0;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.clear-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.paste-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+iframe {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  input[type="text"] {
+    width: 95%;
+  }
+}
+
+  </style>
+</head><body>
+  <header>
+    Nowatermarktok.com
+  </header>  <main>
+    <h2>TikTok Video Downloader (No Watermark)</h2>
+    <p>Paste your TikTok video link below and download without watermark!</p><input id="videoUrl" type="text" placeholder="Paste your TikTok video link here..." />
+
+<div class="buttons">
+  <button class="paste-btn" onclick="pasteLink()">Paste</button>
+  <button class="clear-btn" onclick="clearInput()">Clear</button>
+  <button class="download-btn" onclick="downloadVideo()">Download</button>
+</div>
+
+<iframe id="hiddenFrame"></iframe>
+
+<!-- Adsterra Native Banner Ad -->
+<div style="margin: 20px 0">
+  <script async="async" data-cfasync="false" src="//pl26836492.profitableratecpm.com/1a803ec3c6fa43de25af5fddd270cd5c/invoke.js"></script>
+  <div id="container-1a803ec3c6fa43de25af5fddd270cd5c"></div>
+</div>
+
+<!-- Adsterra Social Bar Ad -->
+<script type='text/javascript' src='//pl26836480.profitableratecpm.com/6b/45/52/6b4552187a53000760ebe6e047cd910d.js'></script>
+
+<!-- Adsterra Bottom Banner Ad -->
+<script type='text/javascript' src='//pl26836470.profitableratecpm.com/23/16/7d/23167d5396deb2878b94869aefc538a5.js'></script>
+
+  </main>  <script>
+    function pasteLink() {
+      navigator.clipboard.readText().then(text => {
+        document.getElementById("videoUrl").value = text;
+      });
+    }
+
+    function clearInput() {
+      document.getElementById("videoUrl").value = "";
+    }
+
+    function downloadVideo() {
+      const url = document.getElementById("videoUrl").value.trim();
+      if (!url) {
+        alert("Please paste a TikTok video link.");
+        return;
+      }
+
+      const apiUrl = `https://tikwm.com/api/?url=${encodeURIComponent(url)}`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data && data.data && data.data.play) {
+            const downloadLink = data.data.play;
+            window.open(downloadLink, '_blank');
+          } else {
+            alert("Failed to fetch download link.");
+          }
+        })
+        .catch(err => alert("Error: " + err));
+    }
+  </script></body></html>
